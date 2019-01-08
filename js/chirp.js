@@ -1,11 +1,11 @@
 function chirp(n) {
   if (n === 0) {
-    return "";
+    return '';
   }
 
-  return "chirp " + chirp(--n);
+  return 'chirp ' + chirp(--n);
 }
 
 $(document).ready(function() {
-  $("#result").html(chirp(3));
+  $('#result').html(chirp(3));
 });

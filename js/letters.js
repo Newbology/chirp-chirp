@@ -35,22 +35,22 @@ var counter = {
 };
 
 function countLetters(counter, sample_text) {
+  //base case
   if (sample_text.length === 0) {
-    console.log(counter);
     return counter;
   }
+  //lowercase then split into array
+  let characterArray = sample_text.toLowerCase().split('');
+  //pop the array created above
+  let checkArray = characterArray.pop();
 
-  let makeArray = sample_text.toLowerCase().split("");
-
-  if (counter.hasOwnProperty(makeArray[makeArray.length - 1])) {
-    counter[makeArray.pop()]++;
-  } else {
-    makeArray.pop();
+  if (counter.hasOwnProperty(checkArray)) {
+    counter[checkArray]++;
   }
-  countLetters(counter, makeArray.join(""));
+  countLetters(counter, characterArray.join(''));
 }
 
 $(document).ready(function() {
   countLetters(counter, sample_text);
-  $("#result").html(JSON.stringify(counter));
+  $('#result').html(JSON.stringify(counter));
 });
